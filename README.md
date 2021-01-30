@@ -13,6 +13,7 @@ Aim of this project is to create a smart contract that handles a common asset an
 + [Variables](#variables)
 + [Functions](#functions)
 + [Process](#process)
++ [Notes](#notes)
 
 ## :electric_plug: Variables <a name = "variables"></a>
 
@@ -79,9 +80,12 @@ approval state (to 0)
 
 ## :mag_right: Process <a name = "process"></a>
 
-First dealer calls “CarProposeToBusiness”. Participants vote to approve the proposed car through
-“ApprovePurchaseCar”. If the approval state is approved by more than half of the participants then manager
-calls “PurchaseCar”.
-To sell the car, manager and dealer talks out side of the system in person. If the dealer agrees to buy the car
-he/she calls the “RepurchaseCarPropose” function with intended price for the car. Participants vote to sell
-through “ApproveSellProposal”. If majority approves, car dealer calls “Repurchasecar”
+First dealer calls “CarProposeToBusiness”. Participants vote to approve the proposed car through “ApprovePurchaseCar”. If the approval state is approved by more than half of the participants then manager calls “PurchaseCar”. To sell the car, manager and dealer talks out side of the system in person. If the dealer agrees to buy the car he/she calls the “RepurchaseCarPropose” function with intended price for the car. Participants vote to sell through “ApproveSellProposal”. If majority approves, car dealer calls “Repurchasecar”.
+
+## :grey_question: Notes <a name = "notes"></a>
+
+- When deploying the contract, Remix IDE giving an error "out of gas. out of gas The transaction ran out of gas". Setting Gas limit to a higher value e.g. 9000000 solving the problem.
+
+- All payable functions are only accepting ether
+
+- For the functions which require a time variable as a parameter (CarProposeToBusiness, RepurchaseCarPropose), time must be given as seconds.
